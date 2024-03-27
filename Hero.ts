@@ -1,16 +1,17 @@
-//Tipo
+//Types
 type User = {
-    name: string //tipo string
-    age: number //tipo number
-    isUserActive?: boolean //tipo boolean, opcional
+    readonly id? : string //Read-Only variable
+    name: string //type string
+    age: number //type number
+    isUserActive?: boolean //type boolean, optional
 }
-//Objeto
+//Object
 let user: User = {
     name: "Joel",
     age: 19
 };
-//Funcion Utilizando los datos de dicho objeto enfocado en Tipo
+//Function using the object
 function createUser(user: User) :User {
     const { name, age} = user
-    return {name, age}
+    return {id: crypto.randomUUID(),name, age, isUserActive: true} //Id will be a random set of characters composed by five six character long strings
 }
