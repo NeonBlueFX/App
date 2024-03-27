@@ -1,11 +1,14 @@
 //Types
 type UserId = `${string}-${string}-${string}-${string}-${string}`
 
+type UserType = "Client" | "Employee" | "Administrator" //Union Type
+
 type User = {
     readonly id? : string //Read-Only variable
     name: string //type string
     age: number //type number
     isUserActive?: boolean //type boolean, optional
+
 }
 //Object
 let user: User = {
@@ -20,3 +23,5 @@ function createUser(user: User) :User {
         age, 
         isUserActive: true} //Id will be a random set of characters composed by five randoms strings
 }
+
+const User1 = createUser({name: "Joel", age:19}) //Remaking user with all created variables
