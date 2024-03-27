@@ -3,25 +3,37 @@ type UserId = `${string}-${string}-${string}-${string}-${string}`
 
 type UserType = "Client" | "Employee" | "Administrator" //Union Type
 
-type User = {
-    readonly id? : string //Read-Only variable
+
+type UserBasicInfo ={
     name: string //type string
     age: number //type number
-    isUserActive?: boolean //type boolean, optional
-
 }
+ 
+type UserProperties = {
+    readonly id? : string //Read-Only variable
+    isUserActive?: boolean //type boolean, optional
+    usertype?: UserType
+}
+
+type User =UserBasicInfo & UserProperties
+
+
 //Object
 let user: User = {
     name: "Joel",
-    age: 19
+    age: 19,
 };
 //Function using the object
-function createUser(user: User) :User {
+function createUser(user: UserBasicInfo) :User {
     const { name, age} = user
     return {id: crypto.randomUUID(),
         name, 
         age, 
-        isUserActive: true} //Id will be a random set of characters composed by five randoms strings
+        isUserActive: true,
+} //Id will be a random set of characters composed by five randoms strings
+        
+
 }
 
-const User1 = createUser({name: "Joel", age:19}) //Remaking user with all created variables
+const User1 = createUser({name: "Joel", age:19,}) //Remaking user with all created variables
+User1.usertype = "Employee"
