@@ -64,3 +64,9 @@ const User3address : UserProperties["address"] ={
     city: "Azua"
 }
 
+//Array
+
+const userNames: string[] = []
+userNames.push[User1.name]
+userNames.push[User2.name]
+userNames.push[User3.name]
