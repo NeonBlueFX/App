@@ -13,6 +13,10 @@ type UserProperties = {
     readonly id? : string //Read-Only variable
     isUserActive?: boolean //type boolean, optional
     usertype?: UserType
+    address?:{
+        country:string,
+        city:string
+    }
 }
 
 type User =UserBasicInfo & UserProperties
@@ -37,3 +41,26 @@ function createUser(user: UserBasicInfo) :User {
 
 const User1 = createUser({name: "Joel", age:19,}) //Remaking user with all created variables
 User1.usertype = "Employee"
+
+
+const User1address : UserProperties["address"] ={ //Type Indexing
+    country: "Dominican Republic",
+    city: "Santo Domingo"
+}
+
+const User2 = createUser({name: "Mike", age:30,})
+User2.usertype = "Client"
+
+const User2address : UserProperties["address"] ={
+    country: "United States",
+    city: "San Francisco"
+}
+
+const User3 = createUser({name: "Josh", age:42,})
+User3.usertype = "Administrator"
+
+const User3address : UserProperties["address"] ={
+    country: "Dominican Republic",
+    city: "Azua"
+}
+
