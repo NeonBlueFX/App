@@ -1,4 +1,6 @@
 //Types
+type UserId = `${string}-${string}-${string}-${string}-${string}`
+
 type User = {
     readonly id? : string //Read-Only variable
     name: string //type string
@@ -13,5 +15,8 @@ let user: User = {
 //Function using the object
 function createUser(user: User) :User {
     const { name, age} = user
-    return {id: crypto.randomUUID(),name, age, isUserActive: true} //Id will be a random set of characters composed by five six character long strings
+    return {id: crypto.randomUUID(),
+        name, 
+        age, 
+        isUserActive: true} //Id will be a random set of characters composed by five randoms strings
 }
